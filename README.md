@@ -46,7 +46,7 @@ npm run dev
 
 ## Build / Compile App
 
-Using the ```run build:app``` This script is configured to compile the application as quickly as possible. It is not ready for distribution, it is compiled only for the current platform and is used for debugging.
+Using the ```npm run build:app``` This script is configured to compile the application as quickly as possible. It is not ready for distribution, it is compiled only for the current platform and is used for debugging.
 
 ```sh
 npm run build:app
