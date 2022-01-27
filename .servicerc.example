@@ -1,8 +1,15 @@
 {
-    "env_name": "Example Environment",
-    "env_description": "This is an example environment",
-    "env_version": "1.0",
-    "env_variables": {
-        "example_variable": "example_value"
-    }
+    "env_name":"Example Environment",
+    "env_description":"This is an example environment",
+    "env_version":"1.0",
+    "env_environment":"local",
+    "env_variables":{
+        "example_variable":"example_value"
+    },
+    "env_window":{
+        "width":1024,
+        "height":768,
+        "center":true
+    },
+    "menv_secret_variable": "secret_variable_value"
 }

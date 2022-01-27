@@ -1,2 +1,4 @@
 node_modules
 dist
+vite.watch.config.js
+/build-scripts/*.ts

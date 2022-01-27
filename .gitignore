@@ -7,3 +7,6 @@ dist-ssr
 /.servicerc
 /package-lock.json
 /.idea/
+/electron-dist/
+/build/
+/electron-preload/exposedInMainWorld.d.ts

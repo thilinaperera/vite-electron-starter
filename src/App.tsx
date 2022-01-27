@@ -11,7 +11,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React + Ant Design + TypeScript!</p>
+        <p>Hello React + Ant Design + TypeScript!</p>
         <div>
           <Button type="primary" onClick={() => setCount(count => count + 1)}>
             count is: {count}

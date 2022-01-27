@@ -1,11 +1,16 @@
 {
-  "name": "vite-react",
+  "name": "vite-electron-starter",
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite --config vite.dev.config.ts --open",
-    "build": "tsc && vite --config vite.production.config.ts build",
+    "dev": "node vite.watch.config.js",
+    "build": "npm run build:main && npm run build:preload && npm run build:renderer",
+    "build:main": "vite --config build-scripts/main.vite.config.ts build",
+    "build:preload": "vite --config build-scripts/preload.vite.config.ts build",
+    "build:renderer": "vite --config build-scripts/renderer.vite.config.ts build",
+    "build:app": "cross-env MODE=production npm run build && electron-builder build --config .electron-builder.config.js --dir --config.asar=false",
     "lint": "eslint --ignore-path .eslintignore --ext .js,.jsx,.ts,.tsx ."
   },
+  "main": "dist/electron/index.cjs",
   "author": {
     "email": "thilina@thilina.co.uk",
     "name": "Thilina Perera",
@@ -17,20 +22,27 @@
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
-    "rc": "~1.2.8",
+    "electron-builder": "~22.14.5",
+    "electron-devtools-installer": "~3.2.0",
+    "electron-updater": "~4.6.1",
+    "electron": "~16.0.7",
+    "@types/node": "~17.0.12",
     "@types/rc": "~1.2.0",
     "@types/react": "~17.0.33",
     "@types/react-dom": "~17.0.10",
     "@typescript-eslint/eslint-plugin": "~5.10.1",
     "@typescript-eslint/parser": "~5.10.1",
     "@vitejs/plugin-react": "~1.0.7",
+    "cross-env": "~7.0.3",
+    "dts-for-context-bridge": "~0.7.1",
     "eslint": "~8.7.0",
     "eslint-config-prettier": "~8.3.0",
     "eslint-plugin-prettier": "~4.0.0",
+    "less": "~4.1.2",
     "prettier": "~2.5.1",
+    "rc": "~1.2.8",
     "sass": "~1.49.0",
     "typescript": "~4.5.5",
-    "vite": "~2.7.2",
-    "less": "~4.1.2"
+    "vite": "~2.7.2"
   }
 }
