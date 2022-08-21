@@ -10,9 +10,12 @@ async function createWindow() {
     width: config?.window?.width || 1024,
     height: config?.window?.height || 768,
     center: config?.window?.center || true,
+    fullscreen: config?.window?.fullscreen || false,
     show: false, // Use 'ready-to-show' event to show window
     webPreferences: {
       nativeWindowOpen: true,
+      contextIsolation: true,
+      nodeIntegration: true,
       webviewTag: false, // The webview tag is not recommended. Consider alternatives like iframe or Electron's BrowserView. https://www.electronjs.org/docs/latest/api/webview-tag#warning
       preload: join(PACKAGE_ROOT, "/electron-preload/index.cjs"),
     },

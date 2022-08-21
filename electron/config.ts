@@ -6,6 +6,6 @@ export default {
   // @ts-ignore
   ...import.meta.env,
   ...config,
-  DEV: config.enviroment !== "production",
-  PROD: config.enviroment === "production",
+  DEV: config.environment !== "production",
+  PROD: config.environment === "production",
 };

@@ -137,7 +137,6 @@ app.on("web-contents-created", (_, contents) => {
 
     // Strip away preload scripts if unused or verify their location is legitimate
     delete webPreferences.preload;
-    // @ts-expect-error `preloadURL` exists - see https://www.electronjs.org/docs/latest/api/web-contents#event-will-attach-webview
     delete webPreferences.preloadURL;
 
     // Disable Node.js integration

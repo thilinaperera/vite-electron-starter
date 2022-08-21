@@ -1,9 +1,9 @@
 // @ts-nocheck
 import { chrome } from "../.electron-vendors.cache.json";
 import { join, resolve } from "path";
-import { builtinModules } from "module";
 import { appConfigs, mainConfigs } from "../.common.config.js";
 import { defineConfig } from "vite";
+import externalPackages from "../external-packages.config";
 
 const PACKAGE_ROOT = resolve(__dirname, "../");
 
@@ -38,10 +38,7 @@ export default ({ mode }: { mode: string }) => {
         formats: ["cjs"],
       },
       rollupOptions: {
-        external: [
-          "electron",
-          ...builtinModules.flatMap(p => [p, `node:${p}`]),
-        ],
+        external: externalPackages,
         output: {
           entryFileNames: "[name].cjs",
         },

@@ -1,7 +1,7 @@
 import { app } from "electron";
 import "./security-restrictions";
 import { restoreOrCreateWindow } from "./mainWindow";
-import {
+import installExtension, {
   REACT_DEVELOPER_TOOLS,
   REDUX_DEVTOOLS,
 } from "electron-devtools-installer";
@@ -48,18 +48,11 @@ app
  * Install Redux or some other devtools in development mode only
  */
 if (config.DEV) {
-  app
-    .whenReady()
-    .then(() => import("electron-devtools-installer"))
-    .then(
-      ({ default: installExtension, REDUX_DEVTOOLS, REACT_DEVELOPER_TOOLS }) =>
-        installExtension([REDUX_DEVTOOLS, REACT_DEVELOPER_TOOLS], {
-          loadExtensionOptions: {
-            allowFileAccess: true,
-          },
-        })
-    )
-    .catch(e => console.error("Failed install extension:", e));
+  app.whenReady().then(() => {
+    installExtension([REDUX_DEVTOOLS.id, REACT_DEVELOPER_TOOLS.id])
+      .then(name => console.log(`Added Extension:  ${name}`))
+      .catch(err => console.log("Failed to install extension: ", err));
+  });
 }
 
 /**
